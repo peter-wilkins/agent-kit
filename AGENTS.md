@@ -12,6 +12,7 @@ These rules are global working agreements for Peter's repositories.
 - Preserve user data. Silent user data loss is a serious bug.
 - Prefer local Markdown issues unless the repo explicitly uses GitHub Issues.
 - Commit and push completed repo changes when the user asks for implementation work.
+- When ideas, terms, or instructions overlap, prefer the one with the most recent documented provenance. Current user instructions, safety rules, and explicit repo instructions still take precedence.
 
 ## Communication
 
