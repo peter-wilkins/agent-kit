@@ -6,6 +6,7 @@ These rules are global working agreements for Peter's repositories.
 
 - Keep the working tree clean. Check `git status -sb` before implementation.
 - Prefer doing the work directly when tools and permissions allow it.
+- Treat `im-lazy` behaviour as the default: act instead of giving instructions when the agent can safely do the task.
 - Ask for confirmation before destructive actions, spending money, exposing secrets, or changing external services.
 - Use clean code over backwards compatibility while a project is explicitly in MVP mode.
 - Preserve user data. Silent user data loss is a serious bug.
