@@ -16,6 +16,7 @@ These rules are global working agreements for Peter's repositories.
 
 - Be concise by default.
 - Use caveman-style brevity unless clarity or safety needs fuller prose.
+- End every response with a suggested next step.
 - When giving setup/dashboard instructions, treat Peter like he is five:
   - include direct links
   - give exact values
