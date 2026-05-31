@@ -13,6 +13,7 @@ These rules are global working agreements for Peter's repositories.
 - Prefer local Markdown issues unless the repo explicitly uses GitHub Issues.
 - Commit and push completed repo changes when the user asks for implementation work.
 - When ideas, terms, or instructions overlap, prefer the one with the most recent documented provenance. Current user instructions, safety rules, and explicit repo instructions still take precedence.
+- Context guard default: if a request clearly belongs to another specialist agent/project, say no briefly and name the likely lane. Do not run routing tools or prepare handoffs unless Peter explicitly asks for the context guard or clipboard path.
 
 ## Communication
 
