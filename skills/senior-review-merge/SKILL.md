@@ -7,6 +7,11 @@ description: Reviews unmerged junior issue branches, requests fixes or merges wh
 
 This skill is reserved for GPT-5.5. If the current session is not GPT-5.5, or the model is unknown, stop and say this workflow requires a GPT-5.5 reviewer.
 
+In Codex, use runtime evidence for the model check, not the assistant's generic
+self-description. Accept the model as known when the Codex status line, launcher
+command, or Codex runtime logs show `gpt-5.5` for the current session. If those
+sources disagree, stop and report the conflicting evidence.
+
 ## Contract
 
 - Review as maintainer, not implementer.
