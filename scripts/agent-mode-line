@@ -5,6 +5,7 @@ agent=""
 work_mode=""
 commit_mode=""
 focus=""
+session=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -24,12 +25,17 @@ while [[ $# -gt 0 ]]; do
       focus="${2:-}"
       shift 2
       ;;
+    --session)
+      session="${2:-}"
+      shift 2
+      ;;
     -h|--help)
       cat <<'USAGE'
 Usage:
   scripts/agent-mode-line --agent JobDone --work-mode Grilling --commit-mode "Commit Directly" --focus "Team Invite/Auth"
+  scripts/agent-mode-line --session jobdone --agent JobDone --work-mode Grilling --commit-mode "Commit Directly" --focus "Recall"
 
-Updates tmux @agent_context and shows it in status-right for the current server.
+Updates tmux @agent_context and shows it in status-left for one tmux session.
 USAGE
       exit 0
       ;;
@@ -61,11 +67,23 @@ if ! command -v tmux >/dev/null 2>&1 || ! tmux list-sessions >/dev/null 2>&1; th
   exit 0
 fi
 
-tmux set-option -gq @agent_context "$context"
-tmux set-option -gq status-left-length 160
-tmux set-option -gq status-left "#{@agent_context} "
-tmux set-option -gq status-right-length 10
-tmux set-option -gq status-right "%H:%M"
+scope=()
+if [[ -n "$session" ]]; then
+  if tmux has-session -t "$session" 2>/dev/null; then
+    scope=(-t "$session")
+  else
+    echo "$context"
+    exit 0
+  fi
+elif [[ -z "${TMUX:-}" ]]; then
+  scope=(-g)
+fi
+
+tmux set-option "${scope[@]}" -q @agent_context "$context"
+tmux set-option "${scope[@]}" -q status-left-length 160
+tmux set-option "${scope[@]}" -q status-left "#{@agent_context} "
+tmux set-option "${scope[@]}" -q status-right-length 10
+tmux set-option "${scope[@]}" -q status-right "%H:%M"
 tmux set-window-option -gq window-status-format ""
 tmux set-window-option -gq window-status-current-format ""
 echo "$context"
