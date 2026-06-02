@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+agent=""
+work_mode=""
+commit_mode=""
+focus=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --agent)
+      agent="${2:-}"
+      shift 2
+      ;;
+    --work-mode)
+      work_mode="${2:-}"
+      shift 2
+      ;;
+    --commit-mode)
+      commit_mode="${2:-}"
+      shift 2
+      ;;
+    --focus)
+      focus="${2:-}"
+      shift 2
+      ;;
+    -h|--help)
+      cat <<'USAGE'
+Usage:
+  scripts/agent-mode-line --agent JobDone --work-mode Grilling --commit-mode "Commit Directly" --focus "Team Invite/Auth"
+
+Updates tmux @agent_context and shows it in status-right for the current server.
+USAGE
+      exit 0
+      ;;
+    *)
+      echo "Unknown argument: $1" >&2
+      exit 2
+      ;;
+  esac
+done
+
+parts=()
+[[ -n "$agent" ]] && parts+=("Agent: $agent")
+[[ -n "$work_mode" ]] && parts+=("Work Mode: $work_mode")
+[[ -n "$commit_mode" ]] && parts+=("Commit Mode: $commit_mode")
+[[ -n "$focus" ]] && parts+=("Focus: $focus")
+
+if [[ ${#parts[@]} -eq 0 ]]; then
+  echo "No mode fields supplied. See --help." >&2
+  exit 2
+fi
+
+context="${parts[0]}"
+for ((i = 1; i < ${#parts[@]}; i++)); do
+  context+=" | ${parts[$i]}"
+done
+
+if ! command -v tmux >/dev/null 2>&1 || [[ -z "${TMUX:-}" ]]; then
+  echo "$context"
+  exit 0
+fi
+
+tmux set-option -gq @agent_context "$context"
+tmux set-option -gq status-right "#{@agent_context} | %H:%M"
+echo "$context"

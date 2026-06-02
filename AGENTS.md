@@ -53,14 +53,24 @@ work such as grilling, TDD, reality checks, diagnosis, and architecture review.
 Choose the model and reasoning level in the launcher or task setup.
 
 Use a compact mode line at startup and when the mode changes if it prevents
-confusion:
+confusion. Prefer these field names:
 
-`Mode: Grilling | Workflow: Commit Directly | Lane: Agent Kit`
+`Agent: JobDone | Work Mode: Grilling | Commit Mode: Commit Directly | Focus: Team Invite/Auth`
 
-Interaction modes describe the human loop: Thinking, Grilling, AFK, Pair
+When running inside tmux, agents can update the status bar with:
+
+```bash
+scripts/agent-mode-line \
+  --agent JobDone \
+  --work-mode Grilling \
+  --commit-mode "Commit Directly" \
+  --focus "Team Invite/Auth"
+```
+
+Work modes describe the human loop: Thinking, Grilling, AFK, Pair
 Programming, CEO, QA/Review.
 
-Workflow modes describe how code changes land.
+Commit modes describe how code changes land.
 
 ## Change Workflow Modes
 
