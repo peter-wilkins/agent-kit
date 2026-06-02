@@ -46,6 +46,22 @@ When Peter asks to be grilled:
 - Do not leave needed dev servers running unmanaged without saying so.
 - For frontend-visible changes, build and restart the local server when practical.
 
+## Agent Modes and Skills
+
+Do not encode developer seniority as skills. Use capability skills for reusable
+work such as grilling, TDD, reality checks, diagnosis, and architecture review.
+Choose the model and reasoning level in the launcher or task setup.
+
+Use a compact mode line at startup and when the mode changes if it prevents
+confusion:
+
+`Mode: Grilling | Workflow: Commit Directly | Lane: Agent Kit`
+
+Interaction modes describe the human loop: Thinking, Grilling, AFK, Pair
+Programming, CEO, QA/Review.
+
+Workflow modes describe how code changes land.
+
 ## Change Workflow Modes
 
 Use the lightest workflow that fits the risk:
