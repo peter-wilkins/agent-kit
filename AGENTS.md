@@ -45,3 +45,19 @@ When Peter asks to be grilled:
 - Do not revert user changes unless explicitly asked.
 - Do not leave needed dev servers running unmanaged without saying so.
 - For frontend-visible changes, build and restart the local server when practical.
+
+## Change Workflow Modes
+
+Use the lightest workflow that fits the risk:
+
+- **Commit Directly**: work on `main`, make small bisectable commits, push, and
+  deploy when needed. Good for MVP/no-user projects where speed matters more
+  than review ceremony.
+- **Feature PR**: use one ready-for-review PR for a coherent risky change, with
+  small commits inside it. Do not make it draft once checks pass and it is ready
+  for Peter to review.
+- **Spike Draft PR**: use a draft PR for experiments, investigations, and
+  branches that should not be reviewed or merged yet.
+
+Branch protection and stricter review should return when real users, money,
+security, or durable data make safety more important than speed.
