@@ -1,6 +1,6 @@
 ---
 name: bug-to-regression
-description: Recreate a bug report or vague user complaint as a concrete failing case, write the smallest useful regression test, fix the root cause, and verify the original flow. Use when a user reports a bug and asks to debug/fix it, says to recreate an issue, turn a bug report into a regression test, prevent a bug coming back, or build a bug-to-test-to-fix feedback loop.
+description: Recreate a bug report or vague user complaint as a concrete failing case, using the Dev phone first for mobile/PWA issues when available, write the smallest useful regression test, fix the root cause, and verify the original flow. Use when a user reports a bug and asks to debug/fix it, says to recreate an issue, turn a bug report into a regression test, prevent a bug coming back, or build a bug-to-test-to-fix feedback loop.
 ---
 
 # Bug To Regression
@@ -10,6 +10,8 @@ Turn "this is broken" into proof, then code.
 ## Rule
 
 Do not start by patching. First build a pass/fail loop that proves the user-visible bug or the closest reachable failure seam.
+
+For mobile/PWA bugs, "recreate" means try the Dev phone first when it is available. The phone is the primary reproduction surface; desktop/headless tests are the regression proxy after the real phone behavior is understood.
 
 If no credible loop can be built, say exactly why and add temporary diagnostics or a focused issue instead of guessing.
 
@@ -34,11 +36,24 @@ Prefer fast deterministic loops:
 1. Existing failing test or command.
 2. Unit/service test at boundary where behavior diverges.
 3. API/database smoke script.
-4. Headless browser/device flow with text assertions.
-5. Targeted instrumentation with removable `[DEBUG-...]` tags.
-6. Human-in-the-loop only when device/platform behavior cannot be automated.
+4. Dev phone flow for mobile/PWA/device bugs, using `adb`, Chrome remote debugging, app text/DOM, logs, storage, network status, and button taps where possible.
+5. Headless browser/device flow with text assertions.
+6. Targeted instrumentation with removable `[DEBUG-...]` tags.
+7. Human-in-the-loop only when device/platform behavior cannot be automated.
 
 The loop must fail for the reported bug before the fix, or clearly explain why this seam is the best proxy.
+
+#### Dev Phone Repro
+
+When a Dev phone is plugged in:
+
+- Identify device with `adb devices -l`.
+- Keep it awake if appropriate; do not wipe data unless the user explicitly asked.
+- Inspect foreground app/origin before assuming the user is on staging/prod.
+- Prefer text evidence: DOM text, console errors, request failures, storage keys, auth/session state, and app logs.
+- Use screenshots/video only when the bug is visual/layout and text evidence is insufficient.
+- Record exact app URL/origin, installed PWA package/scope when relevant, build hash, and account mode.
+- After fixing, repeat the same phone flow, then add a durable automated test or explain the proxy seam.
 
 ### 3. Rank Hypotheses
 
@@ -84,6 +99,7 @@ Before declaring done, try to break the fix:
 Final report must include:
 
 - Root cause in one sentence.
+- Dev phone reproduction result for mobile/PWA bugs, or why it was skipped.
 - Regression test path/name and what it proves.
 - Fix summary.
 - Commands/checks run.
