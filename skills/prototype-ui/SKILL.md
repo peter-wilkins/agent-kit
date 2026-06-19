@@ -1,7 +1,6 @@
 ---
 name: prototype-ui
 description: Prototype a fuzzy UI surface to answer a product question.
-disable-model-invocation: true
 ---
 
 # Prototype UI

@@ -1,7 +1,6 @@
 ---
 name: ui-ux-review
 description: Socratic UI/UX review for product screens and flows.
-disable-model-invocation: true
 ---
 
 # UI/UX Review

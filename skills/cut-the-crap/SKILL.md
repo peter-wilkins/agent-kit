@@ -1,7 +1,6 @@
 ---
 name: cut-the-crap
 description: Grill-style audit for deleting dead code and abandoned experiments.
-disable-model-invocation: true
 ---
 
 # Cut The Crap

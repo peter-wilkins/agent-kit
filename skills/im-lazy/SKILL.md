@@ -1,7 +1,6 @@
 ---
 name: im-lazy
 description: Do available work directly instead of giving Peter instructions.
-disable-model-invocation: true
 ---
 
 # I'm Lazy

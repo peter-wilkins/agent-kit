@@ -1,7 +1,6 @@
 ---
 name: treat-me-like-im-five
 description: Operational instructions in simple concrete steps.
-disable-model-invocation: true
 ---
 
 # Treat Me Like I'm Five

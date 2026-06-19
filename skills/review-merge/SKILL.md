@@ -1,7 +1,6 @@
 ---
 name: review-merge
 description: Review implementation PRs and merge only when safe.
-disable-model-invocation: true
 ---
 
 # Review Merge

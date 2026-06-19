@@ -1,7 +1,6 @@
 ---
 name: issue-branch-worker
 description: Pick up one assigned issue on a branch and open a draft PR.
-disable-model-invocation: true
 ---
 
 # Issue Branch Worker

@@ -1,7 +1,6 @@
 ---
 name: reality-check-docs
 description: Check whether app reality matches docs and product promise.
-disable-model-invocation: true
 ---
 
 # Reality Check Docs

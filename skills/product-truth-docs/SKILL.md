@@ -1,7 +1,6 @@
 ---
 name: product-truth-docs
 description: Extract a product's truthful spine and turn it into accurate docs or copy.
-disable-model-invocation: true
 ---
 
 # Product Truth Docs
