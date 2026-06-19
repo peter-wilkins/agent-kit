@@ -52,6 +52,15 @@ Do not encode developer seniority as skills. Use capability skills for reusable
 work such as grilling, TDD, reality checks, diagnosis, and architecture review.
 Choose the model and reasoning level in the launcher or task setup.
 
+Use Matt Pocock's invocation split for local skills:
+
+- **Model-invoked** skills omit `disable-model-invocation` and keep a
+  model-facing trigger description. Use this only when the agent should
+  autonomously reach for the skill.
+- **User-invoked** skills set `disable-model-invocation: true` and keep a short
+  human-facing description. Use this for orchestration/manual workflows where
+  Peter should deliberately ask for the skill.
+
 Use a compact mode line at startup and when the mode changes if it prevents
 confusion. Prefer these field names:
 

@@ -1,6 +1,7 @@
 ---
 name: ui-ux-review
-description: Socratic UI/UX review for product screens and flows, loaded with practical UX heuristics for layout, hierarchy, thumb reach, click count, consistency, and visual polish. Use when the user asks for UI review, UX review, design QA, screen/flow critique, multi-device checks, or wants to be grilled on what the UI should be.
+description: Socratic UI/UX review for product screens and flows.
+disable-model-invocation: true
 ---
 
 # UI/UX Review

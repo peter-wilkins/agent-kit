@@ -1,6 +1,7 @@
 ---
 name: review-merge
-description: Reviews implementation PRs, requests changes or merges when safe, and reconciles linked issues. Use when the user asks to review, approve, or merge a PR.
+description: Review implementation PRs and merge only when safe.
+disable-model-invocation: true
 ---
 
 # Review Merge

@@ -1,6 +1,7 @@
 ---
 name: cut-the-crap
-description: Audit a codebase for dead code, abandoned experiments, superseded patterns, and features that are no longer on the main path. Use when the user mentions cutting dead code, removing old experiments, cleaning up abandoned features, or asks what can be deleted. Grill-style: one area at a time, recommend cut or keep, wait for confirmation before moving on.
+description: Grill-style audit for deleting dead code and abandoned experiments.
+disable-model-invocation: true
 ---
 
 # Cut The Crap

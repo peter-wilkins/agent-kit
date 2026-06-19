@@ -1,6 +1,7 @@
 ---
 name: prototype-ui
-description: Product-question-first UI prototyping for fuzzy app surfaces where the user does not yet know what the screen should be. Use when asked to prototype a UI, improve a workbench/prototype surface, compare UI directions, or when a quick UI learning loop is needed before implementation.
+description: Prototype a fuzzy UI surface to answer a product question.
+disable-model-invocation: true
 ---
 
 # Prototype UI

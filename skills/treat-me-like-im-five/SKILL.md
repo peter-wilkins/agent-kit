@@ -1,6 +1,7 @@
 ---
 name: treat-me-like-im-five
-description: Use when the user wants operational instructions explained in very simple, concrete steps with direct links, exact values, and no assumed dashboard/navigation knowledge.
+description: Operational instructions in simple concrete steps.
+disable-model-invocation: true
 ---
 
 # Treat Me Like I'm Five

@@ -1,6 +1,7 @@
 ---
 name: product-truth-docs
-description: Extract the truthful product spine from docs, code, UI, tests, and observed workflows, then turn it into accurate docs or marketing copy. Use when the user asks what a product really is, mentions product truth, marketing truth, elevator pitch, coherent app surface, docs that reflect reality, or wants copy/docs/backlog aligned with proven behaviour.
+description: Extract a product's truthful spine and turn it into accurate docs or copy.
+disable-model-invocation: true
 ---
 
 # Product Truth Docs

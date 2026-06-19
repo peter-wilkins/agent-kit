@@ -1,6 +1,7 @@
 ---
 name: reality-check-docs
-description: Audit whether the actual app matches its docs, product language, and intended tight surface area. Use when the user asks whether app reality matches docs, mentions doc drift, feature sprawl, coherent app surface, product reality checks, or wants the next grilling/implementation slice.
+description: Check whether app reality matches docs and product promise.
+disable-model-invocation: true
 ---
 
 # Reality Check Docs

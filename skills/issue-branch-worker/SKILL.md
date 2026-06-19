@@ -1,6 +1,7 @@
 ---
 name: issue-branch-worker
-description: Implements exactly one assigned issue on a branch and opens a draft PR for review. Use when the user asks an AFK, Spark, or branch worker agent to pick up a ticket or prepare implementation for review.
+description: Pick up one assigned issue on a branch and open a draft PR.
+disable-model-invocation: true
 ---
 
 # Issue Branch Worker

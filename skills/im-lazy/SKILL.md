@@ -1,6 +1,7 @@
 ---
 name: im-lazy
-description: Use when the user prefers the agent to perform available actions directly instead of explaining how the user can run scripts or commands themselves.
+description: Do available work directly instead of giving Peter instructions.
+disable-model-invocation: true
 ---
 
 # I'm Lazy
